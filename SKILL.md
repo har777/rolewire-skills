@@ -57,6 +57,23 @@ If you are running in a CLI or environment with `curl` / `fetch` capability:
    curl -s "https://rolewire.app/jobs/<slug>.json"
    ```
 
+## Automated MCP Installation (If requested by user)
+If the user asks to "install rolewire mcp" or "add rolewire to my tools", you (the agent) can automatically configure it in their environment:
+- **Claude Code**: Run `claude mcp add --scope user rolewire -- npx -y rolewire-mcp@latest`
+- **Cursor**: Create or merge into `.cursor/mcp.json`:
+  ```json
+  {
+    "mcpServers": {
+      "rolewire": {
+        "command": "npx",
+        "args": ["-y", "rolewire-mcp@latest"]
+      }
+    }
+  }
+  ```
+- **Claude Desktop**: Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or `%APPDATA%\Claude\claude_desktop_config.json` (Windows).
+- **Antigravity / Windsurf**: Add to `~/.gemini/config/mcp_config.json` or `~/.codeium/windsurf/mcp_config.json`.
+
 ## Response Formatting Guidelines
 - Always present the role **Title**, **Company**, **Location** (including Remote/Hybrid), and **Compensation** if available.
 - Always include the **Rolewire Link** or **Direct Apply** link.

@@ -12,29 +12,14 @@ Compatible with **Claude Code**, **Cursor**, **Codex**, **OpenCode**, **Antigrav
 
 ## Quick Install via skills.sh
 
-### Install the General Job Search Skill:
 ```bash
 npx skills add har777/rolewire-skills
-```
-
-### Or Install the MCP Setup Skill:
-```bash
-npx skills add har777/rolewire-skills --skill rolewire-mcp
 ```
 
 ### Run Interactively (without installing):
 ```bash
 npx skills use har777/rolewire-skills --agent claude-code
 ```
-
----
-
-## Included Skills
-
-| Skill | Name | Description |
-|---|---|---|
-| **General Skill** | `rolewire` | Core skill for searching roles, querying salaries, and inspecting job descriptions via MCP or open Markdown endpoints. |
-| **MCP Integration** | `rolewire-mcp` | Specific skill for configuring and invoking the `rolewire-mcp` server across agent harnesses. |
 
 ---
 
