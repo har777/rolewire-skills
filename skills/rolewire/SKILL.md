@@ -3,7 +3,6 @@ name: rolewire
 description: >
   Search verified open tech roles, salaries, and complete job descriptions in
   AI, DevTools, Consumer, and Crypto directly from company ATS platforms (Ashby, Greenhouse, Lever).
-compatibility: "claude-code cursor opencode codex antigravity zed cline"
 ---
 
 # Rolewire — Tech Job Search & Compensation Intel
