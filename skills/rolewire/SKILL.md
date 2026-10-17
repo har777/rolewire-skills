@@ -58,14 +58,14 @@ If you are running in a CLI or environment with `curl` / `fetch` capability:
 
 ## MCP Tool Setup (When Requested by User)
 If the user asks to install or configure Rolewire MCP tools, you can configure it for their environment with their confirmation:
-- **Claude Code**: Run `claude mcp add --scope user rolewire -- npx -y rolewire-mcp`
+- **Claude Code**: Run `claude mcp add --scope user rolewire -- npx -y rolewire-mcp@latest`
 - **Cursor**: Add to `.cursor/mcp.json`:
   ```json
   {
     "mcpServers": {
       "rolewire": {
         "command": "npx",
-        "args": ["-y", "rolewire-mcp"]
+        "args": ["-y", "rolewire-mcp@latest"]
       }
     }
   }
@@ -79,6 +79,6 @@ If the user asks to install or configure Rolewire MCP tools, you can configure i
 - **Safe Execution**: Never install packages or modify local configuration files without explicit user intent.
 
 ## Response Formatting Guidelines
-- Always present the role **Title**, **Company**, **Location** (including Remote/Hybrid), and **Compensation** if available.
-- Always include the **Rolewire Link** or **Direct Apply** link.
-- Never invent, hallucinate, or assume job availability; always query live Rolewire endpoints.
+- **When summarizing search results**: Include the role **Title**, **Company**, **Location** (including Remote/Hybrid status), **Compensation** (if listed), and the **Rolewire Link**.
+- **When the user asks how to apply or wants full details**: Provide the qualifications summary and the **Direct Apply** link.
+- **Never fabricate roles**: Always query live Rolewire data.
