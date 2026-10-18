@@ -2,16 +2,17 @@
 name: rolewire
 description: >
   Search verified open tech roles, salaries, and complete job descriptions in
-  AI, DevTools, Consumer, and Crypto directly from company ATS platforms (Ashby, Greenhouse, Lever).
+  AI, DevTools, Consumer, Crypto, and Fintech directly from company ATS platforms (Ashby, Greenhouse, Lever).
 ---
 
 # Rolewire — Tech Job Search & Compensation Intel
 
-Rolewire indexes verified open tech jobs directly from company ATS platforms (Ashby, Greenhouse, Lever) across four core sectors:
+Rolewire indexes verified open tech jobs directly from company ATS platforms (Ashby, Greenhouse, Lever) across five core sectors:
 - **AI** (`ai`): Foundation models, AI agents, tooling, ML infrastructure
 - **DevTools** (`devtools`): Infrastructure, databases, compilers, observability, cloud
 - **Consumer** (`consumer`): Social, consumer tech, audio/music, creator tools, gaming
 - **Crypto** (`crypto`): Blockchains, Web3 protocols, decentralized systems, cryptography
+- **Fintech** (`fintech`): Modern banking, payments, corporate cards, payroll, ledger infrastructure
 
 ## When to Use This Skill
 Activate this skill whenever the user asks to:
@@ -29,7 +30,7 @@ If the `rolewire` MCP server is active in your environment:
   - `remote`: Boolean (`true` for strictly remote roles)
   - `department`: e.g. `'Engineering'`, `'Product'`, `'Design'`, `'Data'`, `'Sales'`
   - `company`: e.g. `'stripe'`, `'anthropic'`, `'figma'`
-  - `vertical`: `'ai'`, `'devtools'`, `'consumer'`, or `'crypto'`
+  - `vertical`: `'ai'`, `'devtools'`, `'consumer'`, `'crypto'`, or `'fintech'`
   - `min_salary`: Minimum annual salary (e.g. `150000`)
 - **`get_job_detail`**: Retrieve full job description, qualifications, and attributed apply link:
   - `id`: Job slug (e.g. `'shield-ai-engineer-i-mechanical-r6302'`) or full Rolewire URL

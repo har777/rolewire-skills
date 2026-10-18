@@ -25,11 +25,12 @@ npx skills use har777/rolewire-skills --agent claude-code
 
 ## What is Rolewire?
 
-[Rolewire](https://rolewire.app) tracks verified, open technology roles directly from company ATS platforms across 4 sectors:
+[Rolewire](https://rolewire.app) tracks verified, open technology roles directly from company ATS platforms across 5 sectors:
 - **AI**: Machine learning, foundation models, AI agents, tooling
 - **DevTools**: Developer tools, infrastructure, databases, cloud, observability
 - **Consumer**: Consumer tech, media, audio, social, gaming
 - **Crypto**: Blockchains, protocols, cryptography, Web3
+- **Fintech**: Modern banking, payments, corporate cards, payroll, ledger infrastructure
 
 ---
 
