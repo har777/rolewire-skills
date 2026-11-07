@@ -1,24 +1,27 @@
 ---
 name: rolewire
 description: >
-  Search verified open tech roles, salaries, and complete job descriptions in
-  AI, DevTools, Consumer, Crypto, and Fintech directly from company ATS platforms (Ashby, Greenhouse, Lever).
+  Search verified open tech roles, salaries, visa sponsorship, and complete job descriptions in
+  AI, DevTools, Consumer, Crypto, Fintech, and Hard Tech directly from company ATS platforms
+  (Ashby, Greenhouse, Lever, SmartRecruiters).
 ---
 
 # Rolewire — Tech Job Search & Compensation Intel
 
-Rolewire indexes verified open tech jobs directly from company ATS platforms (Ashby, Greenhouse, Lever) across five core sectors:
+Rolewire indexes verified open tech jobs directly from company ATS platforms (Ashby, Greenhouse, Lever, SmartRecruiters) across six sectors:
 - **AI** (`ai`): Foundation models, AI agents, tooling, ML infrastructure
 - **DevTools** (`devtools`): Infrastructure, databases, compilers, observability, cloud
 - **Consumer** (`consumer`): Social, consumer tech, audio/music, creator tools, gaming
 - **Crypto** (`crypto`): Blockchains, Web3 protocols, decentralized systems, cryptography
 - **Fintech** (`fintech`): Modern banking, payments, corporate cards, payroll, ledger infrastructure
+- **Hard Tech** (`hard-tech`): Defense, aerospace, space, energy, nuclear and fusion, advanced manufacturing
 
 ## When to Use This Skill
 Activate this skill whenever the user asks to:
 - Find software engineering, product, data, or design jobs (e.g. "staff backend roles in SF", "remote rust engineer").
 - Research tech hiring companies (e.g. "active openings at Stripe, Anthropic, or Figma").
 - Inspect salary bands and compensation data for specific positions.
+- Find roles at companies that sponsor visas (e.g. "ML jobs that sponsor visas").
 - Verify whether a role matches specific tech requirements (e.g. ClickHouse, Kubernetes, PyTorch).
 
 ## How to Query Rolewire
@@ -28,14 +31,17 @@ If the `rolewire` MCP server is active in your environment:
 - **`search_jobs`**: Search roles with filters:
   - `query`: Freeform keywords, boolean logic, or qualifiers (e.g., `'backend london'`, `'title:staff -crypto'`, `'vertical:ai'`)
   - `remote`: Boolean (`true` for strictly remote roles)
+  - `visa_sponsorship`: Boolean (`true` for roles whose description says the company sponsors visas)
   - `department`: e.g. `'Engineering'`, `'Product'`, `'Design'`, `'Data'`, `'Sales'`
   - `company`: e.g. `'stripe'`, `'anthropic'`, `'figma'`
-  - `vertical`: `'ai'`, `'devtools'`, `'consumer'`, `'crypto'`, or `'fintech'`
+  - `vertical`: `'ai'`, `'devtools'`, `'consumer'`, `'crypto'`, `'fintech'`, or `'hard-tech'`
   - `min_salary`: Minimum annual salary (e.g. `150000`)
+  - `limit`: Maximum number of roles to return
 - **`get_job_detail`**: Retrieve full job description, qualifications, and attributed apply link:
   - `id`: Job slug (e.g. `'shield-ai-engineer-i-mechanical-r6302'`) or full Rolewire URL
-- **`get_company_roles`**: List all openings for a given company:
+- **`get_company_roles`**: List recent openings for a given company:
   - `company`: Company name or slug
+- **`get_sectors`** / **`get_departments`**: List the valid `vertical` and `department` values.
 
 ### Method 2: Direct HTTP / Curl Endpoints (No MCP server required)
 If you are running in a CLI or environment with `curl` / `fetch` capability:
@@ -47,6 +53,10 @@ If you are running in a CLI or environment with `curl` / `fetch` capability:
 2. **Search Roles (JSON)**:
    ```bash
    curl -s "https://rolewire.app/feed.json?q=staff&vertical=ai&min_salary=180000"
+   ```
+   Filters: `q`, `remote=true`, `visa=true`, `vertical`, `dept`, `company`, `min_salary`, `limit`. For example, roles that sponsor visas:
+   ```bash
+   curl -s "https://rolewire.app/feed.md?visa=true&vertical=hard-tech"
    ```
 3. **Get Full Job Details (Markdown)**:
    ```bash
@@ -80,6 +90,6 @@ If the user asks to install or configure Rolewire MCP tools, you can configure i
 - **Safe Execution**: Never install packages or modify local configuration files without explicit user intent.
 
 ## Response Formatting Guidelines
-- **When summarizing search results**: Include the role **Title**, **Company**, **Location** (including Remote/Hybrid status), **Compensation** (if listed), and the **Rolewire Link**.
+- **When summarizing search results**: Include the role **Title**, **Company**, **Location** (including Remote/Hybrid status), **Compensation** (if listed), **Visa sponsorship** (if the user asked about it), and the **Rolewire Link**.
 - **When the user asks how to apply or wants full details**: Provide the qualifications summary and the **Direct Apply** link.
 - **Never fabricate roles**: Always query live Rolewire data.
